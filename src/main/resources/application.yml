@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: exchange-rate-notifier
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/exchange_rate_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: your-email@gmail.com
+    password: your-app-password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+nbu:
+  api:
+    url: https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json
+
+scheduler:
+  exchange-rate:
+    cron: "0 0 9 * * *"  # Every day at 9:00 AM
+
+logging:
+  level:
+    ua.dmytrolutsiuk.backend: DEBUG
+    org.springframework.web: INFO
+    org.hibernate: INFO
