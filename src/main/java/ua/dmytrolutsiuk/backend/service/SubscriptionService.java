@@ -65,10 +65,6 @@ public class SubscriptionService {
         return subscriptionRepository.findByActiveTrue();
     }
 
-    public List<Subscription> getActiveSubscriptionsByCurrency(String currencyCode) {
-        return subscriptionRepository.findByCurrencyCodeAndActiveTrue(currencyCode.toUpperCase());
-    }
-
     private SubscriptionResponse mapToResponse(Subscription subscription) {
         return SubscriptionResponse.builder()
                 .id(subscription.getId())
