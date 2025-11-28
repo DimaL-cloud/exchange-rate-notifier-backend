@@ -3,7 +3,7 @@ spring:
     name: exchange-rate-notifier
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/exchange_rate_db
+    url: jdbc:postgresql://localhost:5432/exchange_rate_db?options=-c%20TimeZone=Europe/Kyiv
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
